@@ -10,7 +10,7 @@
  * getFirst([true,false,true]); // true
  */
 export function getFirst(array) {
-  // TODO
+  return array[0];
 }
 
 /**
@@ -25,7 +25,7 @@ export function getFirst(array) {
  * getLast([true,false,true]); // true
  */
 export function getLast(array) {
-  // TODO
+  return array[array.length - 1];
 }
 
 /**
@@ -42,7 +42,9 @@ export function getLast(array) {
  * getFirstLast([42]); // [42]
  */
 export function getFirstLast(array) {
-  // TODO
+  if (array.length === 0) return [];
+  if (array.length === 1) return array;
+  return [getFirst(array), getLast(array)];
 }
 
 /**
@@ -59,7 +61,11 @@ export function getFirstLast(array) {
  * sharesFirstLetter("cat", "dog"); // false
  */
 export function sharesFirstLetter(str1, str2) {
-  // TODO
+  if (str1.length === 0 || str2.length === 0) {
+    return false;
+  } else {
+    return str1[0] === str2[0];
+  }
 }
 
 /**
@@ -74,7 +80,11 @@ export function sharesFirstLetter(str1, str2) {
  * quintuple([]); // []
  */
 export function quintuple(numbers) {
-  // TODO
+  let result = [];
+  for (let i = 0; i < numbers.length; i++) {
+    result.push(numbers[i] * 5);
+  }
+  return result;
 }
 
 /**
@@ -95,7 +105,14 @@ export function quintuple(numbers) {
  * pluralize([]); // []
  */
 export function pluralize(words) {
-  // TODO
+  let plurals = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    plurals.push(word.endsWith("s") ? word + "es" : word + "s");
+  }
+
+  return plurals;
 }
 
 /**
@@ -112,7 +129,13 @@ export function pluralize(words) {
  * countAttendance([]); // 0
  */
 export function countAttendance(attendance) {
-  // TODO
+  let count = 0;
+
+  for (let i = 0; i < attendance.length; i++) {
+    if (attendance[i]) count++;
+  }
+
+  return count;
 }
 
 /**
@@ -128,7 +151,17 @@ export function countAttendance(attendance) {
  * getLongestWord(["a", "ab", "abc"]); // "abc"
  */
 export function getLongestWord(sentence) {
-  // TODO
+  if (sentence.length === 0) return null;
+
+  let longestWord = "";
+
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i].length > longestWord.length) {
+      longestWord = sentence[i];
+    }
+  }
+
+  return longestWord;
 }
 
 /**
@@ -145,7 +178,12 @@ export function getLongestWord(sentence) {
  * findSong([], "Midnight Drive"); // -1
  */
 export function findSong(playlist, song) {
-  // TODO
+  for (let i = 0; i < playlist.length; i++) {
+    if (playlist[i] === song) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -162,5 +200,12 @@ export function findSong(playlist, song) {
  * findSpy([["tree","lamp"],["pigeon","guard"]]); // null
  */
 export function findSpy(map) {
-  // TODO
+  for (let x = 0; x < map.length; x++) {
+    for (let y = 0; y < map[x].length; y++) {
+      if (map[x][y] === "spy") {
+        return [x, y];
+      }
+    }
+  }
+  return null;
 }
