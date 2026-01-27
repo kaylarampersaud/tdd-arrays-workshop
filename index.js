@@ -106,12 +106,10 @@ export function quintuple(numbers) {
  */
 export function pluralize(words) {
   let plurals = [];
-
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
     plurals.push(word.endsWith("s") ? word + "es" : word + "s");
   }
-
   return plurals;
 }
 
@@ -130,11 +128,9 @@ export function pluralize(words) {
  */
 export function countAttendance(attendance) {
   let count = 0;
-
   for (let i = 0; i < attendance.length; i++) {
     if (attendance[i]) count++;
   }
-
   return count;
 }
 
@@ -154,13 +150,11 @@ export function getLongestWord(sentence) {
   if (sentence.length === 0) return null;
 
   let longestWord = "";
-
   for (let i = 0; i < sentence.length; i++) {
     if (sentence[i].length > longestWord.length) {
       longestWord = sentence[i];
     }
   }
-
   return longestWord;
 }
 
